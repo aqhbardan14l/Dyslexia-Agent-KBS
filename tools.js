@@ -1,54 +1,11 @@
-function ChunkingTool(text){
+function runAgent() {
 
-  const sentences = text.split('.');
+    alert("Button clicked!");
 
-  let output = [];
+    let input =
+    document.getElementById("inputText").value;
 
-  for(let i=0;i<sentences.length;i++){
-
-      output.push("• " + sentences[i].trim());
-
-  }
-
-  return output.join("<br>");
-}
-
-function HighlightTool(text){
-
-  return text.replace(
-    /(important|key|main|remember)/gi,
-    "<b>$1</b>"
-  );
-
-}
-
-function GlossaryTool(text){
-
-  const glossary = {
-
-    comprehend: "understand",
-
-    cognitive: "thinking process",
-
-    analysis: "study",
-
-    paragraph: "group of sentences"
-
-  };
-
-  let result = text;
-
-  Object.keys(glossary).forEach(word => {
-
-      const regex = new RegExp(word,"gi");
-
-      result = result.replace(
-        regex,
-        ${word} (${glossary[word]})
-      );
-
-  });
-
-  return result;
+    document.getElementById("output").innerHTML =
+    input;
 
 }
