@@ -1,45 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dyslexia Support AI Assistant</title>
-
+    <title>Dyslexia AI</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="main-container">
+<div class="main-container">
 
-        <h1>🧠 Dyslexia Support AI Assistant</h1>
+    <h1>Dyslexia Support AI</h1>
 
-        <p>
-            Enter your question below and receive support.
-        </p>
+    <textarea id="userInput" placeholder="Type here..."></textarea>
 
-        <textarea
-            id="userInput"
-            placeholder="Type your question here..."
-        ></textarea>
+    <button onclick="runAgent()">
+        Generate Support
+    </button>
 
-        <button onclick="runAgent()">
-            Generate Support
-        </button>
-
-        <div id="outputBox">
-
-            <h3>AI Response</h3>
-
-            <p id="outputText">
-                Your response will appear here...
-            </p>
-
-        </div>
-
+    <div id="outputBox">
+        <p id="outputText">Result will appear here</p>
     </div>
 
-    <script src="knowledgebase.js"></script>
-    <script src="tools.js"></script>
+</div>
+
+<script src="tools.js"></script>
 
 </body>
 </html>
