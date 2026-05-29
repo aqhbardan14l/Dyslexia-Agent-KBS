@@ -1,280 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Dyslexia Support AI Assistant</title>
 
-    <style>
-
-        body {
-
-            margin: 0;
-            padding: 0;
-
-            font-family: Arial, sans-serif;
-
-            background: linear-gradient(to right, #dfe9f3, #ffffff);
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            min-height: 100vh;
-        }
-
-        .container {
-
-            width: 90%;
-            max-width: 800px;
-
-            background: white;
-
-            padding: 40px;
-
-            border-radius: 20px;
-
-            box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-
-            text-align: center;
-
-            color: #4a6fa5;
-
-            font-size: 40px;
-        }
-
-        .subtitle {
-
-            text-align: center;
-
-            color: #666;
-
-            margin-bottom: 30px;
-        }
-
-        textarea {
-
-            width: 100%;
-
-            height: 180px;
-
-            padding: 15px;
-
-            border-radius: 15px;
-
-            border: 1px solid #ccc;
-
-            font-size: 16px;
-
-            resize: none;
-        }
-
-        button {
-
-            width: 100%;
-
-            margin-top: 20px;
-
-            padding: 15px;
-
-            border: none;
-
-            border-radius: 15px;
-
-            background: #4a6fa5;
-
-            color: white;
-
-            font-size: 18px;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-        }
-
-        button:hover {
-
-            background: #34527a;
-        }
-
-        .output {
-
-            margin-top: 30px;
-
-            background: #eef3ff;
-
-            padding: 25px;
-
-            border-radius: 15px;
-
-            min-height: 150px;
-        }
-
-        .feature-box {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            margin-top: 20px;
-
-            gap: 10px;
-        }
-
-        .feature {
-
-            flex: 1;
-
-            background: #f5f7ff;
-
-            padding: 15px;
-
-            border-radius: 12px;
-
-            text-align: center;
-
-            font-size: 14px;
-        }
-
-    </style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="container">
+    <div class="main-container">
 
         <h1>🧠 Dyslexia Support AI Assistant</h1>
 
-        <p class="subtitle">
-            AI system designed using Human Expert Knowledge & GDVRR Protocol
+        <p>
+            Enter your question below and receive support.
         </p>
 
-        <textarea 
+        <textarea
             id="userInput"
-            placeholder="Enter your text here..."
+            placeholder="Type your question here..."
         ></textarea>
 
-        <button onclick="generateResponse()">
+        <button onclick="runAgent()">
             Generate Support
         </button>
 
-        <div class="feature-box">
+        <div id="outputBox">
 
-            <div class="feature">
-                📘 Simple Language
-            </div>
-
-            <div class="feature">
-                ✂️ Chunking
-            </div>
-
-            <div class="feature">
-                🌿 Stress Support
-            </div>
-
-        </div>
-
-        <div class="output">
-
-            <h2>✨ AI Response</h2>
+            <h3>AI Response</h3>
 
             <p id="outputText">
-                Your simplified text will appear here...
+                Your response will appear here...
             </p>
 
         </div>
 
     </div>
 
-    <script>
-
-        function generateResponse() {
-
-            let input = document.getElementById("userInput").value;
-
-            let response = "";
-
-            if(input.trim() === "") {
-
-                response = `
-                • Please enter some text first.<br><br>
-                💡 Tip: Try entering a paragraph or sentence.
-                `;
-            }
-
-            else if(input.toLowerCase().includes("dyslexia")) {
-
-                response = `
-                • Dyslexia affects reading and spelling.<br>
-                • Long text can feel overwhelming.<br>
-                • Short sentences are easier to understand.<br>
-                • Chunking helps reduce confusion.<br><br>
-
-                💡 Tip:<br>
-                Read one section at a time.<br><br>
-
-                ❓Would you like a simpler explanation?
-                `;
-            }
-
-            else if(input.toLowerCase().includes("study")) {
-
-                response = `
-                • Study one topic at a time.<br>
-                • Use bullet points for notes.<br>
-                • Take short breaks while studying.<br><br>
-
-                📚 Tip:<br>
-                25-minute study sessions work well.<br><br>
-
-                ❓Would you like study tips?
-                `;
-            }
-
-            else if(input.toLowerCase().includes("stress")) {
-
-                response = `
-                • Take slow deep breaths.<br>
-                • Focus on one task only.<br>
-                • Read slowly and calmly.<br><br>
-
-                🌿 Tip:<br>
-                Small steps are okay.<br><br>
-
-                ❓Would you like calming strategies?
-                `;
-            }
-
-            else {
-
-                response = `
-                • Your text has been simplified.<br>
-                • Short sentences improve readability.<br>
-                • Simple words reduce confusion.<br><br>
-
-                ✨ AI Support Completed.<br><br>
-
-                ❓Do you need more help?
-                `;
-            }
-
-            document.getElementById("outputText").innerHTML = response;
-        }
-
-    </script>
+    <script src="knowledgebase.js"></script>
+    <script src="tools.js"></script>
 
 </body>
-
 </html>
-```
