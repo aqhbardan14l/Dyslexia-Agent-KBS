@@ -7,38 +7,32 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="main-container">
 
         <h1>🧠 Dyslexia Support AI Assistant</h1>
 
-        <p>
-            Enter your question below and receive support.
-        </p>
+        <p>Enter your text and get AI support instantly.</p>
 
-        <textarea
-            id="userInput"
-            placeholder="Type your question here..."
-        ></textarea>
+        <!-- INPUT -->
+        <textarea id="userInput" placeholder="Type here..."></textarea>
 
-        <button onclick="runAgent()">
+        <!-- BUTTON -->
+        <button id="submitBtn">
             Generate Support
         </button>
 
+        <!-- OUTPUT -->
         <div id="outputBox">
-
             <h3>AI Response</h3>
-
-            <p id="outputText">
-                Your response will appear here...
-            </p>
-
+            <p id="outputText">Waiting for input...</p>
         </div>
 
     </div>
 
-    <script src="knowledgebase.js"></script>
+    <!-- JS FILES -->
     <script src="tools.js"></script>
 
 </body>
