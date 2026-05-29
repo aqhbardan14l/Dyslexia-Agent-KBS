@@ -1,53 +1,41 @@
-
 function generateResponse(input) {
 
     input = input.toLowerCase();
 
-    if(input.includes("dyslexia")) {
-
+    if (input.includes("dyslexia")) {
         return `
         • Dyslexia affects reading and spelling.<br>
-        • Long text may feel difficult.<br>
-        • Short sentences are easier to read.<br>
-        • Chunking helps reduce confusion.<br><br>
-
-        💡 Tip:
-        Read one section at a time.
+        • Short sentences are easier to understand.<br>
+        • Reading in small sections can help.<br><br>
+        💡 Tip: Read one paragraph at a time.
         `;
     }
 
-    else if(input.includes("study")) {
-
+    else if (input.includes("study")) {
         return `
         • Study one topic at a time.<br>
-        • Use bullet points for notes.<br>
-        • Take short breaks.<br><br>
-
-        📚 Tip:
-        25-minute study sessions work well.
+        • Use short notes and bullet points.<br>
+        • Take regular breaks.<br><br>
+        📚 Tip: Try the 25-minute study method.
         `;
     }
 
-    else if(input.includes("stress")) {
-
+    else if (input.includes("stress")) {
         return `
         • Take deep breaths.<br>
-        • Focus on one task only.<br>
-        • Read slowly and calmly.<br><br>
-
+        • Focus on one task at a time.<br>
+        • Stay calm and take breaks.<br><br>
         🌿 Small steps are okay.
         `;
     }
 
     else {
-
         return `
-        • Your text was simplified.<br>
-        • Short sentences improve readability.<br>
-        • Simple words reduce confusion.<br><br>
-
-        ✨ AI support completed.
+        • I could not find a specific answer.<br>
+        • Try using keywords such as:<br>
+        - dyslexia<br>
+        - study<br>
+        - stress
         `;
     }
 }
-
