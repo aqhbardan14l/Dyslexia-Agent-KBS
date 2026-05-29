@@ -1,11 +1,8 @@
 function runAgent() {
 
-    alert("Button clicked!");
+    let input = document.getElementById("userInput").value;
 
-    let input =
-    document.getElementById("inputText").value;
+    let response = generateResponse(input);
 
-    document.getElementById("output").innerHTML =
-    input;
-
+    document.getElementById("outputText").innerHTML = response;
 }
