@@ -1,33 +1,47 @@
-async function runAgent() {
+document.addEventListener("DOMContentLoaded", function () {
 
-    let input = document.getElementById("userInput").value;
+    const button = document.getElementById("submitBtn");
 
-    if (!input) {
-        document.getElementById("outputText").innerHTML = "Enter text first";
-        return;
-    }
+    button.addEventListener("click", async function () {
 
-    document.getElementById("outputText").innerHTML = "Thinking...";
+        let input = document.getElementById("userInput").value;
 
-    const apiKey = "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";
+        if (!input) {
+            document.getElementById("outputText").innerHTML =
+                "Please enter text first.";
+            return;
+        }
 
-    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + apiKey
-        },
-        body: JSON.stringify({
-            model: "llama3-8b-8192",
-            messages: [
-                { role: "system", content: "You are a dyslexia support AI." },
-                { role: "user", content: input }
-            ]
-        })
+        document.getElementById("outputText").innerHTML =
+            "Processing... 🤖";
+
+        const apiKey = "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";
+
+        const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + apiKey
+            },
+            body: JSON.stringify({
+                model: "llama3-8b-8192",
+                messages: [
+                    {
+                        role: "system",
+                        content: "You are a dyslexia support assistant. Use simple sentences."
+                    },
+                    {
+                        role: "user",
+                        content: input
+                    }
+                ]
+            })
+        });
+
+        const data = await response.json();
+
+        document.getElementById("outputText").innerHTML =
+            data.choices?.[0]?.message?.content || "No response.";
     });
 
-    const data = await response.json();
-
-    document.getElementById("outputText").innerHTML =
-        data.choices?.[0]?.message?.content || "Error response";
-}
+});
