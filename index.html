@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dyslexia AI</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dyslexia Support</title>
 </head>
 
 <body>
 
-<div class="main-container">
+<h1>Dyslexia Support AI</h1>
 
-    <h1>Dyslexia Support AI</h1>
+<textarea id="userInput" placeholder="Type here..."></textarea>
 
-    <textarea id="userInput" placeholder="Type here..."></textarea>
+<button onclick="runAgent()">
+    Generate Support
+</button>
 
-    <button onclick="runAgent()">
-        Generate Support
-    </button>
-
-    <div id="outputBox">
-        <p id="outputText">Result will appear here</p>
-    </div>
-
-</div>
+<p id="outputText">Result here...</p>
 
 <script src="tools.js"></script>
 
