@@ -1,47 +1,44 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.getElementById("submitBtn").addEventListener("click", async function () {
 
-    const button = document.getElementById("submitBtn");
+    let input = document.getElementById("userInput").value;
 
-    button.addEventListener("click", async function () {
+    console.log("INPUT:", input);
 
-        let input = document.getElementById("userInput").value;
+    document.getElementById("outputText").innerHTML = "Thinking...";
 
-        if (!input) {
-            document.getElementById("outputText").innerHTML =
-                "Please enter text first.";
-            return;
-        }
+    const apiKey = "PASTE_KEY_HERE";
 
-        document.getElementById("outputText").innerHTML =
-            "Processing... 🤖";
-
-        const apiKey = "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";
-
-        const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + apiKey
-            },
-            body: JSON.stringify({
-                model: "llama3-8b-8192",
-                messages: [
-                    {
-                        role: "system",
-                        content: "You are a dyslexia support assistant. Use simple sentences."
-                    },
-                    {
-                        role: "user",
-                        content: input
-                    }
-                ]
-            })
-        });
-
-        const data = await response.json();
-
-        document.getElementById("outputText").innerHTML =
-            data.choices?.[0]?.message?.content || "No response.";
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + apiKey
+        },
+        body: JSON.stringify({
+            model: "llama3-8b-8192",
+            messages: [
+                {
+                    role: "system",
+                    content: "You are a helpful dyslexia assistant."
+                },
+                {
+                    role: "user",
+                    content: input
+                }
+            ]
+        })
     });
 
+    const data = await response.json();
+
+    console.log("API RESPONSE:", data);
+
+    let output =
+        data?.choices?.[0]?.message?.content;
+
+    if (!output) {
+        output = "ERROR: No AI response (check console)";
+    }
+
+    document.getElementById("outputText").innerHTML = output;
 });
